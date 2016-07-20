@@ -39,6 +39,10 @@ int main(int argc, const char * argv[]) {
         }
     }
     
+    delete_list(&testList, 33, &element);
+    delete_list(&testList, 33, &element);
+    delete_list(&testList, 33, &element);
+    
     for (int i = 0; i < 110; i++)
     {
         if (get_element(testList, i + 1, &element))

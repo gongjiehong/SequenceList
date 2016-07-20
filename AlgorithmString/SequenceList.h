@@ -65,6 +65,15 @@ bool get_element(SequenceList seq_list, int index, DataType *element)
     return true;
 }
 
+DataType get_element(SequenceList seq_list, int index)
+{
+    if (index < 1 || index > seq_list.length) {
+        printf("越界了");
+        return NULL;
+    }
+    return seq_list.list[index];
+}
+
 bool insert_list(SequenceList *seq_list, int index, DataType element)
 {
     if (index < 1 || index > seq_list -> length + 1)
@@ -105,9 +114,9 @@ bool delete_list(SequenceList *seq_list, int index, DataType *element)
     else
     {
         *element = seq_list->list[index - 1];
-        for (int j = index; j < seq_list->length - 1; j++)
+        for (int j = index; j < seq_list->length; j++)
         {
-            seq_list->list[j - 1] = seq_list->list[j]; ///移动元素
+            seq_list->list[j] = seq_list->list[j + 1]; ///移动元素
         }
         seq_list->length = seq_list->length -1;  ///表长减少
         return true;
